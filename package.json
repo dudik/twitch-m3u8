@@ -1,0 +1,23 @@
+{
+  "name": "twitch-m3u8",
+  "version": "1.0.0",
+  "description": "Gets the .m3u8 URL of a Twitch stream or VOD",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Samuel Dudik <samuel.dudik@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "soon"
+  },
+  "keywords": [
+    "twitch",
+    "m3u8",
+    "url",
+    "stream",
+    "vod",
+    "livestream"
+  ]
+}
