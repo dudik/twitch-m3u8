@@ -32,7 +32,7 @@ function getAcessToken(id, vod) {
 
 function getPlaylist(id, accessToken, vod) {
     return new Promise((resolve, reject) => {
-        get(`https://usher.ttvnw.net/${vod ? 'vod' : 'api/channel/hls'}/${id}?client_id=${clientId}&token=${accessToken.token}&sig=${accessToken.sig}`)
+        get(`https://usher.ttvnw.net/${vod ? 'vod' : 'api/channel/hls'}/${id}?client_id=${clientId}&token=${accessToken.token}&sig=${accessToken.sig}&allow_source&allow_audio_only`)
         .then((data) => {
             switch (data.statusCode) {
                 case 200:
@@ -55,7 +55,8 @@ function parsePlaylist(playlist) {
     const lines = playlist.split('\n');
     for (let i = 4; i < lines.length - 1; i += 3) {
         parsedPlaylist.push({
-            quality: lines[i-1].split('VIDEO="')[1].slice(0, -1),
+            quality: lines[i-2].split('NAME="')[1].split('"')[0],
+            resolution: (lines[i-1].indexOf('RESOLUTION') != -1 ? lines[i-1].split('RESOLUTION=')[1].split(',')[0] : null),
             url: lines[i]
         });
     }

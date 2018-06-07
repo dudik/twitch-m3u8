@@ -1,6 +1,6 @@
 {
   "name": "twitch-m3u8",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Gets the .m3u8 URL of a Twitch stream or VOD",
   "main": "index.js",
   "scripts": {
