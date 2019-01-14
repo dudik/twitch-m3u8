@@ -1,25 +1,25 @@
 # twitch-m3u8
-> Get the stream URL of a Twitch livestream or VOD
+> Get the stream URL of a Twitch livestream or past broadcast (VOD)
 
 ## Features
-* Supports livestreams and VODs
-* Can return raw .m3u8 data
-* 0 dependencies
-* Promise-based
+⚫ Supports both livestreams and past broadcasts (VODs)    
+⚫ 0 dependencies   
+⚫ Promise-based    
+⚫ Can return raw .m3u8 data    
 
 ## Installation
 [Node.js](https://nodejs.org/en/) required
-```
+```bash
 npm install twitch-m3u8
 ```
 
 ## Usage
 Twitch Client ID required. Register [here](https://dev.twitch.tv/).
 
-Functions getStream and getVod have an optional second boolean parameter which defaults to false. Setting it to:  
+Functions getStream and getVod have an optional second boolean parameter which defaults to false (can be omitted). Setting it to:  
 true - function returns raw .m3u8 data  
 false - function returns an array of JSON objects containing the quality, resolution and URL of the stream  
-```node
+```js
 // replace clientID with your Twitch Client ID
 const twitch = require('twitch-m3u8')(clientID);
 
@@ -44,11 +44,20 @@ twitch.getVod(vodID, true)
 .catch(err => console.error(err));
 ```
 Example output:
-```
-[ { quality: '720p60',
-    resolution: '1280x720',
-    url: 'https://...' },
-    ... ]
+```js
+[
+    {
+        quality: '1080p60 (source)',
+        resolution: '1920x1080',
+        url: 'https://...'
+    },
+    {
+        quality: '720p60',
+        resolution: '1280x720',
+        url: 'https://...'
+    },
+    ...
+]
 ```
 
 ## Contribute
