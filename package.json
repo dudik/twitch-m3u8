@@ -1,7 +1,7 @@
 {
   "name": "twitch-m3u8",
-  "version": "1.0.1",
-  "description": "Get the stream URL of a Twitch livestream or VOD",
+  "version": "1.0.5",
+  "description": "Get the stream URL of a Twitch livestream or past broadcast (VOD)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
