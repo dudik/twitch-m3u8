@@ -32,7 +32,7 @@ function getAcessToken(id, vod) {
 
 function getPlaylist(id, accessToken, vod) {
     return new Promise((resolve, reject) => {
-        get(`https://usher.ttvnw.net/${vod ? 'vod' : 'api/channel/hls'}/${id}?client_id=${clientId}&token=${accessToken.token}&sig=${accessToken.sig}&allow_source&allow_audio_only`)
+        get(`https://usher.ttvnw.net/${vod ? 'vod' : 'api/channel/hls'}/${id}.m3u8?client_id=${clientId}&token=${accessToken.token}&sig=${accessToken.sig}&allow_source&allow_audio_only`)
             .then((data) => {
                 switch (data.statusCode) {
                     case 200:
