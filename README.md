@@ -23,22 +23,22 @@ false - function returns an array of JSON objects containing the quality, resolu
 const twitch = require('twitch-m3u8');
 
 // returns a JSON object containing available streams of a livestream
-twitch.getStream(streamer)
+twitch.getStream("chess")
 .then(data => console.log(data))
 .catch(err => console.error(err));
 
 // returns a JSON object containing available streams of a VOD
-twitch.getVod(vodID)
+twitch.getVod("877379571")
 .then(data => console.log(data))
 .catch(err => console.error(err));
 
 // returns raw .m3u8 data containing available streams of a livestream
-twitch.getStream(streamer, true)
+twitch.getStream("chess", true)
 .then(data => console.log(data))
 .catch(err => console.error(err));
 
 // returns raw .m3u8 data containing available streams of a VOD
-twitch.getVod(vodID, true)
+twitch.getVod("877379571", true)
 .then(data => console.log(data))
 .catch(err => console.error(err));
 ```
