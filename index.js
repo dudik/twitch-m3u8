@@ -2,7 +2,7 @@ const https = require('https');
 
 const clientId = "kimne78kx3ncx6brgo4mv6wki5h1ko";
 
-function getAcessToken(id, isVod) {
+function getAccessToken(id, isVod) {
 	const data = JSON.stringify({
 		operationName: "PlaybackAccessToken",
 		extensions: {
@@ -101,7 +101,7 @@ function parsePlaylist(playlist) {
 
 function getStream(channel, raw) {
 	return new Promise((resolve, reject) => {
-		getAcessToken(channel, false)
+		getAccessToken(channel, false)
 			.then((accessToken) => getPlaylist(channel, accessToken, false))
 			.then((playlist) => resolve((raw ? playlist : parsePlaylist(playlist))))
 			.catch(error => reject(error));
@@ -110,7 +110,7 @@ function getStream(channel, raw) {
 
 function getVod(vid, raw) {
 	return new Promise((resolve, reject) => {
-		getAcessToken(vid, true)
+		getAccessToken(vid, true)
 			.then((accessToken) => getPlaylist(vid, accessToken, true))
 			.then((playlist) => resolve((raw ? playlist : parsePlaylist(playlist))))
 			.catch(error => reject(error));
