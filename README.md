@@ -20,7 +20,7 @@ Functions getStream and getVod have an optional second boolean parameter which d
 true - function returns raw .m3u8 data  
 false - function returns an array of JSON objects containing the quality, resolution and URL of the stream  
 ```js
-const twitch = require('twitch-m3u8');
+const twitch = require("twitch-m3u8");
 
 // returns a JSON object containing available streams of a livestream
 twitch.getStream("chess")
