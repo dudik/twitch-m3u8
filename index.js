@@ -59,7 +59,7 @@ function getAcessToken(id, isVod) {
 
 function getPlaylist(id, accessToken, vod) {
 	return new Promise((resolve, reject) => {
-		const req = https.get(`https://usher.ttvnw.net/${vod ? 'vod' : 'api/channel/hls'}/${id}.m3u8?client_id=${clientId}&token=${accessToken.value}&sig=${accessToken.signature}&allow_source&allow_audio_only`, (response) => {
+		const req = https.get(`https://usher.ttvnw.net/${vod ? 'vod' : 'api/channel/hls'}/${id}.m3u8?client_id=${clientId}&token=${accessToken.value}&sig=${accessToken.signature}&allow_source=true&allow_audio_only=true`, (response) => {
 			let data = {};
 			data.statusCode = response.statusCode;
 			data.body = [];
