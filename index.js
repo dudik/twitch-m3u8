@@ -89,7 +89,7 @@ function getPlaylist(id, accessToken, vod) {
 function parsePlaylist(playlist) {
 	const parsedPlaylist = [];
 	const lines = playlist.split('\n');
-	for (let i = 4; i < lines.length - 1; i += 3) {
+	for (let i = 4; i < lines.length; i += 3) {
 		parsedPlaylist.push({
 			quality: lines[i - 2].split('NAME="')[1].split('"')[0],
 			resolution: (lines[i - 1].indexOf('RESOLUTION') != -1 ? lines[i - 1].split('RESOLUTION=')[1].split(',')[0] : null),
