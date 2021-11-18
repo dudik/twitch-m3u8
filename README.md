@@ -63,7 +63,7 @@ Example output:
 All reverse engineering of the GraphQL API was taken from the [streamlink](https://github.com/streamlink/streamlink) project. I just rewrote it for Node.js.
 
 ## Contribute
-Did you find a bug? Do you have an idea or a feature request? [Open an issue!](https://github.com/woafu/twitch-m3u8/issues)
+Did you find a bug? Do you have an idea or a feature request? [Open an issue!](https://github.com/dudik/twitch-m3u8/issues)
 
 ## License
-[MIT](https://github.com/woafu/twitch-m3u8/blob/master/LICENSE) © Samuel Dudik
+[MIT](https://github.com/dudik/twitch-m3u8/blob/master/LICENSE) © Samuel Dudik
