@@ -19,5 +19,6 @@
     "stream",
     "vod",
     "livestream"
-  ]
+  ],
+  "types": "types/index.d.ts"
 }
