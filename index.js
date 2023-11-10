@@ -4,21 +4,16 @@ const clientId = "kimne78kx3ncx6brgo4mv6wki5h1ko";
 
 function getAccessToken(id, isVod) {
 	const data = JSON.stringify({
-		operationName: "PlaybackAccessToken",
-		extensions: {
-			persistedQuery: {
-				version: 1,
-				sha256Hash: "0828119ded1c13477966434e15800ff57ddacf13ba1911c129dc2200705b0712"
-			}
-		},
-		variables: {
-			isLive: !isVod,
-			login: (isVod ? "" : id),
-			isVod: isVod,
-			vodID: (isVod ? id : ""),
-			playerType: "embed"
+		"operationName": "PlaybackAccessToken_Template",
+		"query": "query PlaybackAccessToken_Template($login: String!, $isLive: Boolean!, $vodID: ID!, $isVod: Boolean!, $playerType: String!) {  streamPlaybackAccessToken(channelName: $login, params: {platform: \"web\", playerBackend: \"mediaplayer\", playerType: $playerType}) @include(if: $isLive) {    value    signature   authorization { isForbidden forbiddenReasonCode }   __typename  }  videoPlaybackAccessToken(id: $vodID, params: {platform: \"web\", playerBackend: \"mediaplayer\", playerType: $playerType}) @include(if: $isVod) {    value    signature   __typename  }}",
+		"variables": {
+		  "isLive": true,
+		  "login": id,
+		  "isVod": false,
+		  "vodID": "",
+		  "playerType": "site"
 		}
-	});
+	  });
 
 	const options = {
 		hostname: 'gql.twitch.tv',
